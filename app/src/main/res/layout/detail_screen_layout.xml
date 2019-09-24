@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.gtabak.ingcase.model.RepoModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CCFFFFFF">
+
+        <ImageView
+            android:id="@+id/personImg"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_bg"
+            android:padding="2dp"
+            android:scaleType="fitXY"
+            android:src="@{data.owner.avatar_url}"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ownerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/owner_txt"
+            android:textSize="@dimen/text_size_list"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/personImg"
+            app:layout_constraintTop_toTopOf="@+id/personImg"
+            tool:text="Owner" />
+
+        <TextView
+            android:id="@+id/ownerNameValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="@{data.owner.login}"
+            android:textSize="@dimen/text_size_list"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ownerName"
+            app:layout_constraintTop_toTopOf="@+id/personImg"
+            tool:text="Owner" />
+
+        <TextView
+            android:id="@+id/starsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/starts_txt"
+            android:textSize="@dimen/text_size_list"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/personImg"
+            app:layout_constraintTop_toBottomOf="@+id/personImg"
+            tool:text="Starts :" />
+
+        <TextView
+            android:id="@+id/starsCountValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="20dp"
+            android:text="@{String.valueOf(data.stargazers_count)}"
+            android:textSize="@dimen/text_size_list"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/starsCount"
+            app:layout_constraintTop_toBottomOf="@+id/personImg"
+            tool:text="0" />
+
+        <TextView
+            android:id="@+id/issuesCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/open_issues_txt"
+            android:textSize="@dimen/text_size_list"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/starsCount"
+            app:layout_constraintTop_toBottomOf="@+id/starsCount"
+            tool:text="Open Issues :" />
+
+        <TextView
+            android:id="@+id/issuesCountValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="20dp"
+            android:text="@{String.valueOf(data.open_issues_count)}"
+            android:textSize="@dimen/text_size_list"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/issuesCount"
+            app:layout_constraintTop_toBottomOf="@+id/starsCount"
+            tool:text="0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

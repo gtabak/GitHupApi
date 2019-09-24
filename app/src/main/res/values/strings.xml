@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Ing Case</string>
+    <string name="home_screen_name">Home</string>
+    <string name="submit_button">SUBMIT</string>
+    <string name="connection_txt">Please Check Your Internet Connection!</string>
+    <string name="empty_txt">Please enter username</string>
+    <string name="not_found">Result not found</string>
+    <string name="starts_txt">Starts :</string>
+    <string name="open_issues_txt">Open Issues :</string>
+    <string name="owner_txt">Owner :</string>
+</resources>
