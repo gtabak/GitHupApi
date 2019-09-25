@@ -49,20 +49,22 @@ class HomeScreen : AppCompatActivity() {
 
                 model.getData(userName).observe(this, Observer<List<RepoModel>> { users ->
 
-                    if (users != null) {
-                        dataList = users as ArrayList<RepoModel>
-                    } else {
+                    if (users!!.isEmpty()) {
                         dataList.clear()
-                    }
-                    updateUI(dataList, binding!!)
 
-                    if (dataList.isEmpty()) {
                         Toast.makeText(
                             applicationContext,
                             resources.getString(R.string.not_found),
                             Toast.LENGTH_LONG
                         ).show()
+
+                    } else {
+
+                        dataList = users as ArrayList<RepoModel>
+
                     }
+                    updateUI(dataList, binding!!)
+
 
                     binding!!.llProgressBar.root.visibility = View.GONE
                 })
